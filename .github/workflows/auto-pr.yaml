@@ -18,7 +18,7 @@ jobs:
         name: pull-request
         with:
           destination_branch: "main"
-          pr_title: "Flux automatic image update ${{ github.ref_name }}"
-          pr_body: "A new version of the image is available ${{ github.ref_name }}"
+          pr_title: "Flux automatic image update ${{ github.ref }}"
+          pr_body: "A new version of the image is available ${{ github.ref }}"
           pr_draft: false
           github_token: ${{ secrets.GITHUB_TOKEN }}
