@@ -15,7 +15,7 @@ def hello():
     VERSION = os.environ.get("VERSION")  #Read the version variable
 
     if ENV == "prod":
-        return f"This is a production environment (Version: {VERSION})"
+        return f"This is a new  production environment (Version: {VERSION})"
     elif ENV == "stage":
         return f"This is a staging environment with (Version: {VERSION})"
     else:
