@@ -9,7 +9,7 @@ resources:
 images:
 - name: docker.io/shapai/helloenv
   newName: docker.io/shapai/helloenv # {"$imagepolicy": "flux-system:helloenv-staging:name"}
-  newTag: main-a022f936-1703144912 # {"$imagepolicy": "flux-system:helloenv-staging:tag"}
+  newTag: main-318df57f-1703145339 # {"$imagepolicy": "flux-system:helloenv-staging:tag"}
 patches:
 - patch: |
     apiVersion: apps/v1
