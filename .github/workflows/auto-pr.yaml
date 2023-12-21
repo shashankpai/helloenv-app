@@ -18,7 +18,7 @@ jobs:
       - name: Get tag version
         id: check-tag
         run: |
-          echo "::set-output name=TAG::${{ github.ref_name }}"
+          echo "::set-output name=TAG::${{ github.event.head_commit.tag }}"
       - uses: repo-sync/pull-request@v2
         name: pull-request
         with:
