@@ -13,12 +13,17 @@ jobs:
           env | sort
       - uses: actions/checkout@v2
         name: checkout
-      
+      - name: Get tag version
+        id: tag
+        run: |
+          VERSION=$(echo ${{ github.event.client_payload.metadata.revision }} | cut -d '@' -f1)
+          echo VERSION=${VERSION} >> $GITHUB_OUTPUT 
+          echo "${VERSION}" 
       - uses: repo-sync/pull-request@v2
         name: pull-request
         with:
           destination_branch: "main"
-          pr_title: "Flux automatic image update ${{ github.event.head_commit.tag }}"
-          pr_body: "A new version of the image is available ${{ github.event.head_commit.tag }}"
+          pr_title: "Flux automatic image update v${{ steps.tag.outputs.version }"
+          pr_body: "A new version of the image is available v${{ steps.tag.outputs.version }"
           pr_draft: false
           github_token: ${{ secrets.GITHUB_TOKEN }}
