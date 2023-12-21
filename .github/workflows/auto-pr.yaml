@@ -23,7 +23,7 @@ jobs:
         name: pull-request
         with:
           destination_branch: "main"
-          pr_title: "${VERSION}"
+          pr_title: "new image update is available"
           pr_body: "A new version of the image is available "
           pr_draft: false
           github_token: ${{ secrets.GITHUB_TOKEN }}
