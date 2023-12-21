@@ -11,12 +11,14 @@ jobs:
       - shell: bash
         run: |
           env | sort
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         name: checkout
+        with:
+          ref: main
       - name: Get tag version
         id: tag
         run: |
-          VERSION=$(echo ${{ github.event.client_payload.metadata.revision }} | cut -d '@' -f1)
+          VERSION=$(echo ${{ github.event.client_payload.metadata.revision }} )
           echo VERSION=${VERSION} >> $GITHUB_OUTPUT 
           echo "${VERSION}" 
       - uses: repo-sync/pull-request@v2
